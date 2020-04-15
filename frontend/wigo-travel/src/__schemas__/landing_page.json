@@ -1,0 +1,116 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Id"
+      }
+    },
+    "category": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["page_category"],
+        "label": "Category"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Title"
+      }
+    },
+    "wide": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["hero_image"],
+        "label": "Wide"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "seo": {
+            "type": "Slice",
+            "fieldset": "SEO",
+            "description": "Seo data",
+            "icon": "explore",
+            "display": "list",
+            "non-repeat": {
+              "seo_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "SEO Title"
+                }
+              },
+              "seo_description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "SEO Description"
+                }
+              },
+              "seo_no_index": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "SEO No Index"
+                }
+              },
+              "seo_no_follow": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "SEO No Follow"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Layout": {
+    "header_position": {
+      "type": "Select",
+      "config": {
+        "options": ["default", "sticky"],
+        "default_value": "default",
+        "label": "Header Position"
+      }
+    },
+    "header_color": {
+      "type": "Select",
+      "config": {
+        "options": ["primary", "transparent"],
+        "default_value": "primary",
+        "label": "Header Color"
+      }
+    }
+  },
+  "Content": {
+    "contents": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "content": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["offers_group", "info_block"],
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Contents"
+      }
+    }
+  }
+}

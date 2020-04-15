@@ -1,0 +1,209 @@
+html {
+  background: #ddd;
+}
+
+body {
+  text-align: center;
+  background: #ddd;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+strong {
+  color: #7d7d7d !important;
+}
+
+.navbar {
+  background: #ddd;
+  font-weight: bold;
+}
+
+.wemake-services-body {
+  height: 95vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wemake-services-logo {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.github-corner img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+.customPanel,
+.customCard {
+  border: 2px solid #babbb8;
+  border-radius: 32px;
+  background: #fff;
+  height: 250px;
+  width: 440px;
+}
+
+.customCard {
+  box-shadow: none;
+}
+
+.customPanel .panel-heading {
+  background-color: transparent !important;
+  text-align: left;
+  border-bottom: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  font-weight: 600;
+  color: #babbb8;
+  font-style: italic;
+}
+
+.customPanel .panel-block {
+  border-bottom: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.customCard .dropzone {
+  border: 0;
+}
+
+.customCard .dropzone .dz-message {
+  font-size: 1.25em;
+  font-weight: 300;
+  line-height: 1.25;
+  padding: .5em .75em;
+}
+
+.bg-container {
+  padding: 35px;
+}
+
+.btn-white {
+  background: #fff !important;
+  border: 1px solid #848080 !important;
+  border-radius: 6px !important;
+  width: 75% !important;
+  margin: 23px auto !important;
+  font-weight: 600;
+  font-style: italic;
+  color: #999 !important;
+  font-weight: 400;
+  font-size: 19px;
+  margin-bottom: 0 !important;
+}
+
+.btn-blue {
+  background-color: #2aa1e6 !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  width: 75% !important;
+  margin: 23px auto !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.download-file {
+  width: 423px;
+  margin: auto;
+  height: 247px;
+  border-radius: 15px;
+}
+
+#file-downloader {
+  background: #dcdcdc;
+  border: 1px solid #999;
+  color: #fff;
+  font-weight: 600;
+  width: 78%;
+  font-size: 18px;
+  margin: 35px auto;
+}
+
+.dropzone.dz-clickable .dz-message {
+  font-weight: 600;
+  color: #999;
+}
+
+.card-content.has-text-centered.min-ht-150 strong {
+  color: #999 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*LOGIN CSS START*/
+
+.column.is-6.is-offset-3 form {
+  background-color: #e8e8e8;
+  border-radius: 25px;
+  border: 2px solid #babbb8;
+  padding: 88px 70px;
+  width: 380px;
+  margin-left: 102px;
+  margin-top: 56px;
+  position: relative;
+  padding-bottom: 39px;
+}
+
+.column.is-6.is-offset-3 form::before {
+  content: "Saturation Forecast Model";
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  color: #a2a1a1;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.columns.is-desktop .button.is-primary {
+  background-color: #4283fb !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  width: 85% !important;
+  margin-top: 10px;
+}
+
+.column.is-6.is-offset-3 form .label {
+  display: none;
+}
+
+.control {
+  text-align: center;
+}
+
+.control input {
+  width: 202px;
+  margin: auto;
+}
+
+#id_username,
+#id_password {
+  border-radius: 10px;
+}
+
+.columns.is-desktop #id_username::-webkit-input-placeholder {
+  color: #8eaade;
+  text-align: center;
+}
+
+.columns.is-desktop #id_password::-webkit-input-placeholder {
+  color: #8eaade;
+  text-align: center;
+}
+
+/*LOGIN CSS END*/

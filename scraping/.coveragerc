@@ -1,0 +1,18 @@
+[run]
+branch = True
+omit =
+  server/*/migrations/*.py
+  */.local/*
+  */migrations/*
+  */tests.py
+  */test_*.py
+  */tests/*
+  */*_test.py
+data_file = .cache/coverage
+
+[report]
+skip_covered=True
+show_missing=True
+#fail_under=90
+precision=2
+sort=cover

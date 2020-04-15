@@ -1,0 +1,4 @@
+*.test.js
+gatsby-*.js
+backend-api.tsx
+__generated__/**/*

@@ -1,0 +1,83 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["import", "@typescript-eslint", "prettier", "react"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "quotes": [2, "double", "avoid-escape"],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-useless-constructor": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "no-useless-constructor": "off",
+    "no-empty-pattern": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "linebreak-style": "off"
+  },
+  "overrides": [
+    {
+      "files": ["__mocks__/**/*.js", "**/*.spec.{ts,tsx}"],
+      "env": {
+        "browser": true,
+        "node": true,
+        "mocha": true,
+        "jest": true
+      },
+      "rules": {
+        "no-restricted-globals": [
+          "error",
+          {
+            "name": "fit",
+            "message": "Use it instead."
+          },
+          {
+            "name": "fdescribe",
+            "message": "Use describe instead."
+          }
+        ],
+        "no-restricted-properties": [
+          "error",
+          {
+            "object": "describe",
+            "property": "only",
+            "message": "Use describe instead."
+          },
+          {
+            "object": "it",
+            "property": "only",
+            "message": "Use it instead."
+          },
+          {
+            "object": "test",
+            "property": "only",
+            "message": "Use test instead."
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

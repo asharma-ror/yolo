@@ -1,0 +1,42 @@
+{
+  "Main": {
+    "name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Name"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Description"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "hotels": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "hotel": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["hotel"],
+              "label": "Hotel"
+            }
+          }
+        },
+        "label": "Hotels"
+      }
+    }
+  }
+}

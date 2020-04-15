@@ -1,0 +1,133 @@
+---
+
+# Default compose file for development and production.
+# Should be used directly in development.
+# Automatically loads `docker-compose.override.yml` if it exists.
+# No extra steps required.
+# Should be used together with `docker/docker-compose.prod.yml`
+# in production.
+
+version: "3.6"
+services:
+  db:
+    image: "postgres:11-alpine"
+    restart: unless-stopped
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - webnet
+    env_file: server/.env
+
+  mongo:
+    image: "mongo:4"
+    restart: unless-stopped
+    volumes:
+      - mongodata:/data/db
+    networks:
+      - webnet
+
+  redis:
+    image: "redis:5"
+    restart: unless-stopped
+    volumes:
+      - redisdata:/data
+    networks:
+      - webnet
+
+  web:
+    <<: &webconfig
+      image: yolo-web
+      build:
+        target: development_build
+        context: .
+        dockerfile: ./docker/django/Dockerfile
+        args:
+          DJANGO_ENV: development
+      networks:
+        - webnet
+      env_file: ./server/.env
+      environment:
+        DJANGO_DATABASE_HOST: db
+        REDIS_HOST: redis
+      depends_on:
+        - db
+        - redis
+    command: python -Wd manage.py runserver 0.0.0.0:8000
+    volumes:
+      - django-static:/var/www/django/static
+      - django-media:/var/www/django/media
+
+  jq:  #  job-queue service
+    <<: *webconfig
+    command: python manage.py run_huey --workers 2
+
+  b2b:
+    build:
+      target: development_build
+      context: ./frontend/b2business
+      dockerfile: ../Dockerfile
+    command: yarn start -H 0.0.0.0
+    volumes:
+      - /app/node_modules
+
+  b2c:
+    <<: &b2c-config
+      build:
+        target: development_build
+        context: ./frontend/wigo-travel
+        dockerfile: ../Dockerfile
+    command: yarn start -H 0.0.0.0
+    volumes:
+      - /app/node_modules
+
+  b2c-sb:
+    <<: *b2c-config
+    command: yarn storybook
+    volumes:
+      - /app/node_modules
+
+  crawl:
+    <<: &crawl-config
+      image: yolo_crawl
+      build:
+        target: development_build
+        context: ./scraping
+        dockerfile: Dockerfile
+      networks:
+        - webnet
+      environment:
+        MONGO_DB_HOST: mongo
+        REDIS_HOST: redis
+    command: dramatiq jobs --watch .
+    depends_on:
+      - crawl-scheduler
+
+  crawl-scheduler:
+    <<: *crawl-config
+    command: periodiq -v jobs
+    depends_on:
+      - mongo
+      - redis
+
+  me:   # mongo-db server admin
+    image: mongo-express
+    restart: unless-stopped
+    networks:
+      - webnet
+    environment:
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "false"
+    env_file:
+      - ./server/.env
+    depends_on:
+      - mongo
+
+networks:
+  # Network for your internals, use it by default:
+  webnet:
+
+volumes:
+  pgdata:
+  mongodata:
+  redisdata:
+  django-static:
+  django-media:

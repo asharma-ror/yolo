@@ -1,0 +1,160 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Id"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Title"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Description"
+      }
+    },
+    "wide": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["hero_image"],
+        "label": "Wide"
+      }
+    },
+    "destinations": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "destination": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["product_destination"],
+              "label": "Destination"
+            }
+          }
+        },
+        "label": "Destinations"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "seo": {
+            "type": "Slice",
+            "fieldset": "SEO",
+            "description": "Seo data",
+            "icon": "explore",
+            "display": "list",
+            "non-repeat": {
+              "seo_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "SEO Title"
+                }
+              },
+              "seo_description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "SEO Description"
+                }
+              },
+              "seo_no_index": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "SEO No Index"
+                }
+              },
+              "seo_no_follow": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "SEO No Follow"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Booking Info": {
+    "treatment_name": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Treatment Name"
+      }
+    },
+    "price_info": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Price Info"
+      }
+    },
+    "week_info": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Week Info"
+      }
+    },
+    "people_info": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "People Info"
+      }
+    },
+    "duration_info": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Duration Info"
+      }
+    },
+    "airport_info": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Airport Info"
+      }
+    }
+  },
+  "Product Info": {
+    "product_id": {
+      "type": "Text",
+      "config": {
+        "label": "Product Id"
+      }
+    },
+    "product_ranking": {
+      "type": "Number",
+      "config": {
+        "label": "Product Ranking"
+      }
+    },
+    "product_ranking_label": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Product Ranking Label"
+      }
+    }
+  }
+}

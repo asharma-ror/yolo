@@ -1,0 +1,62 @@
+---
+
+# This docker-compose file is required to bind ports in development,
+# since binding ports in regular compose file will ruin scaling
+# in production. Due to how `ports` directive is merged with two files.
+#
+# This file is ignored in production, but
+# it is automatically picked up in development with:
+#
+#  $ docker-compose up
+
+version: "3.6"
+services:
+  db:
+    ports:
+      - "5432:5432"
+  mongo:
+    ports:
+      - "27017:27017"
+  redis:
+    ports:
+      - 6379:6379
+  web:
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - smtp
+  jq:
+    volumes:
+      - .:/code
+  b2b:
+    volumes:
+      - ./frontend/b2business:/app
+    ports:
+      - "3000:3000"
+  b2c:
+    volumes:
+      - ./frontend/wigo-travel:/app
+    ports:
+      - "3100:3100"
+    env_file: ./frontend/wigo-travel/.env
+  b2c-sb:
+    volumes:
+      - ./frontend/wigo-travel:/app
+    ports:
+      - "6106:6106"
+    env_file: ./frontend/wigo-travel/.env
+  smtp:
+    image: djfarrelly/maildev
+    networks:
+      - webnet
+    ports:
+      - "1080:80"
+      - "1025:25"
+  crawl:
+    volumes:
+      - ./scraping:/code
+  me:
+    ports:
+      - 8081:8081

@@ -1,0 +1,71 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Title"
+      }
+    },
+    "title_style": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "default",
+          "alignLeft",
+          "alignRight",
+          "center",
+          "leftColumn",
+          "rightColumn"
+        ],
+        "default_value": "default",
+        "label": "Title Style"
+      }
+    },
+    "subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Subtitle"
+      }
+    },
+    "subtitle_style": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "default",
+          "alignLeft",
+          "alignRight",
+          "center",
+          "leftColumn",
+          "rightColumn"
+        ],
+        "default_value": "default",
+        "label": "Subtitle Style"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    }
+  },
+  "CTA": {
+    "cta_name": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "CTA Name"
+      }
+    },
+    "cta_link": {
+      "type": "Link",
+      "config": {
+        "label": "CTA Link"
+      }
+    }
+  }
+}

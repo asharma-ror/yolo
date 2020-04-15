@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css"
+        integrity="sha256-0Z6mOrdLEtgqvj7tidYQnCYWG3G2GAIpatAWKhDx+VM=" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+        integrity="sha256-soW/iAENd5uEBh0+aUIS1m2dK4K6qTcB9MLuOnWEQhw=" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+  <style>
+    .min-ht-200 {
+      min-height: 200px;
+    }
+
+    .min-ht-150 {
+      min-height: 150px;
+    }
+  </style>
+{% endblock extra_css %}
+
+{% block content %}
+  <div class="bg-container">
+    <div class="columns">
+      <div class="column">
+        <div class="panel customPanel">
+          <p class="panel-heading x">Statistics:</p>
+          <div class="panel-block min-ht-200">
+            <p>&nbsp;</p>
+          </div>
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        <h2><strong>Roll Back To Previous Version</strong></h2>
+        <button class="button is-light is-medium is-fullwidth btn-white" type="button">Choose your version</button>
+        <br>
+        <br>
+        <h2><strong>Re-Train the predictive model</strong></h2>
+        <button class="button is-light is-medium is-fullwidth btn-blue" type="button">Re-train</button>
+      </div>
+    </div>
+
+      {#  uploader and downloader#}
+    <div class="columns">
+      <div class="column">
+        <div class="card customCard">
+          <div class="card-content min-ht-150">
+            <form id="upload-files" action="{% url 'main:upload' %}" class="dropzone">
+                {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card download-file">
+          <div class="card-content has-text-centered min-ht-150">
+            <br>
+            <h2><strong>Click below to dowload your file</strong></h2>
+            <button id="file-downloader" class="button is-light is-medium is-fullwidth">
+              Click here
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_javascript %}
+  <script>
+    window.fileUploadUrl = "{% url 'main:upload' %}"
+  </script>
+  <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dropzone@5.5.1/dist/dropzone.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
+          integrity="sha256-ITwLtH5uF4UlWjZ0mdHOhPwDpLoqxzfFCZXn1wE56Ps=" crossorigin="anonymous"></script>
+  <script>
+    Dropzone.options.uploadFiles = {
+      timeout: 900000
+    }
+  </script>
+  <script src="{% static 'main/js/index.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "B2C - Launch on firefox",
+      "type": "firefox",
+      "request": "launch",
+      "url": "https://localhost:3100/",
+      "webRoot": "${workspaceFolder}/public"
+    },
+    {
+      "name": "B2C - Launch on chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:3100/",
+      "webRoot": "${workspaceFolder}/public"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "B2C - Jest All",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["--runInBand"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "B2C - Jest Current File",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.js"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
+    }
+  ]
+}

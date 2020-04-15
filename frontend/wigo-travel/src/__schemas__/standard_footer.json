@@ -1,0 +1,145 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Title"
+      }
+    }
+  },
+  "Newsletter": {
+    "newsletter_box_title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Newsletter Box Title"
+      }
+    },
+    "newsletter_box_disclaimer": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Newsletter Box Disclaimer"
+      }
+    },
+    "newsletter_input_placeholder": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Newsletter Input Placeholder"
+      }
+    },
+    "newsletter_input_cta_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Newsletter Input Cta Text"
+      }
+    },
+    "newsletter_subscribed_message": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Newsletter Subscribed Message"
+      }
+    }
+  },
+  "Social": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "social_links": []
+        },
+        "choices": {
+          "social_links": {
+            "type": "Slice",
+            "fieldset": "Social Links",
+            "description": "Social Links",
+            "icon": "local_bar",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Title"
+                }
+              }
+            },
+            "repeat": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Icon"
+                }
+              },
+              "url": {
+                "type": "Link",
+                "config": {
+                  "label": "Url"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Company": {
+    "company_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Company Name"
+      }
+    },
+    "company_info": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Company Info"
+      }
+    }
+  },
+  "Links": {
+    "body1": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "footer_link": []
+        },
+        "choices": {
+          "footer_link": {
+            "type": "Slice",
+            "fieldset": "Footer Link",
+            "description": "Footer Link",
+            "icon": "call_missed_outgoing",
+            "display": "grid",
+            "non-repeat": {},
+            "repeat": {
+              "link_title": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Link Title"
+                }
+              },
+              "link_address": {
+                "type": "Link",
+                "config": {
+                  "label": "Link Address"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

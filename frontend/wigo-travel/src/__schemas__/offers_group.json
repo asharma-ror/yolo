@@ -1,0 +1,40 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Title"
+      }
+    },
+    "link": {
+      "type": "Link",
+      "config": {
+        "label": "Link"
+      }
+    },
+    "link_label": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Link Label"
+      }
+    },
+    "offers": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "offer": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["offer_box"],
+              "label": "Offer"
+            }
+          }
+        },
+        "label": "Offers"
+      }
+    }
+  }
+}

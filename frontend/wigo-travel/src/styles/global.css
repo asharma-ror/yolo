@@ -1,0 +1,17 @@
+body,
+p {
+  margin: 0;
+}
+
+body {
+  font-family: "Chivo", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.airLabel {
+  display: block;
+}

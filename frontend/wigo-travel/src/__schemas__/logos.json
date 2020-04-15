@@ -1,0 +1,54 @@
+{
+  "Primary": {
+    "primary": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Primary"
+      }
+    },
+    "primary_negative": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Primary Negative"
+      }
+    },
+    "primary_background": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Primary Background"
+      }
+    }
+  },
+  "Light": {
+    "light": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Light"
+      }
+    },
+    "light_negative": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Light Negative"
+      }
+    },
+    "light_background": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Light Background"
+      }
+    }
+  }
+}

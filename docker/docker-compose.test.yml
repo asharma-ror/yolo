@@ -1,0 +1,40 @@
+---
+# used for testing during ci
+
+version: "3.6"
+services:
+  db:
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  web:
+    image: "registry.com.divisible.net:4567/customers/yolo:test"
+    build:
+      target: production_build
+      cache_from:
+        - "registry.com.divisible.net:4567/customers/yolo:test"
+    volumes:
+      - .:/code
+    environment:
+      DJANGO_SECRET_KEY: |
+        05d1b28bd23f66e9006e9522e931a90dfc265a29eff54d2cd9671c1a57095bbb8529acf02301d71c447a158940ad132bd8be
+      ME_CONFIG_BASICAUTH_PASSWORD: "pwd"
+    links:
+      - db
+
+  b2b:
+    image: "registry.com.divisible.net:4567/customers/yolo/b2b:test"
+    build:
+      cache_from:
+        - "registry.com.divisible.net:4567/customers/yolo/b2b:test"
+    volumes:
+      - ./frontend/b2business:/app
+
+
+  b2c:
+    image: "registry.com.divisible.net:4567/customers/yolo/b2c:test"
+    build:
+      cache_from:
+        - "registry.com.divisible.net:4567/customers/yolo/b2c:test"
+    volumes:
+      - ./frontend/wigo-travel:/app

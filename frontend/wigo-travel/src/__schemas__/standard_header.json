@@ -1,0 +1,56 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Title"
+      }
+    }
+  },
+  "Link": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "menu_link": []
+        },
+        "choices": {
+          "menu_link": {
+            "type": "Slice",
+            "fieldset": "Menu Link",
+            "description": "Menu Link",
+            "icon": "insert_link",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Name"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Login": {
+    "login_menu_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Login Menu Name"
+      }
+    }
+  }
+}

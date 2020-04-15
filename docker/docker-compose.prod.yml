@@ -1,0 +1,143 @@
+---
+
+# This compose-file is production only. So, it should not be called directly.
+#
+# Instead, it should be a part of your deploy strategy.
+# This setup is supposed to be used with `docker-swarm`.
+# See `./docs/pages/template/production.rst` docs.
+
+version: "3.6"
+services:
+  db:
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  caddy:
+    image: "abiosoft/caddy"
+    restart: unless-stopped
+    volumes:
+      - caddy-file:/etc/caddy:ro  # configuration
+      - django-static:/var/www/django/static:ro  # serving django's statics
+      - django-media:/var/www/django/media:ro  # serving django's media
+    depends_on:
+      - web
+    command: --conf /etc/caddy/Caddyfile
+    networks:
+      - webnet
+      - proxy
+    #    deploy:
+    labels:
+      traefik.enable: "true"
+      traefik.frontend.rule: 'Host: yolo.g1.dvlab.in'
+      traefik.port: 80
+      traefik.docker.network: 'proxy'
+
+  web:
+    <<: &webconfig
+      image: "registry.com.divisible.net:4567/customers/yolo:staging"
+      build:
+        cache_from:
+          - "registry.com.divisible.net:4567/customers/yolo:staging"
+        target: production_build
+        context: .
+        dockerfile: ./docker/django/Dockerfile
+        args:
+          DJANGO_ENV: production
+      restart: unless-stopped
+    command: sh ./docker/django/gunicorn.sh
+    volumes:
+      - caddy-file:/code/docker/caddy
+
+  jq:
+    <<: *webconfig
+    command: python manage.py run_huey --workers 2 --health_check_interval 10
+
+  notebook:
+    <<: *webconfig
+    networks:
+      - webnet
+      - proxy
+    env_file: ./server/.env
+    #    deploy:
+    labels:
+      traefik.enable: "true"
+      traefik.frontend.rule: 'Host: nb.yolo.g1.dvlab.in'
+      traefik.port: 8888
+      traefik.docker.network: 'proxy'
+    environment:
+      DJANGO_DATABASE_HOST: db
+      NOTEBOOK_ARGUMENTS: " --allow-root --ip=0.0.0.0 --port=8888
+       --NotebookApp.password='sha1:8aa50d2fc99a:6bf7d992c1a14f0870f6a382ba2047048a04ed7e'"
+    command: python manage.py shell_plus --notebook --no-browser
+    depends_on:
+      - db
+
+  b2b:
+    image: "registry.com.divisible.net:4567/customers/yolo/b2b:staging"
+    build:
+      cache_from:
+        - "registry.com.divisible.net:4567/customers/yolo/b2b:staging"
+      target: production_build
+      args:
+        BUILD_ENV: production
+    networks:
+      - webnet
+      - proxy
+    env_file: ./server/.env
+    command: yarn serve -H 0.0.0.0
+    #    deploy:
+    labels:
+      traefik.enable: "true"
+      traefik.frontend.rule: 'Host: b2b.yolo.g1.dvlab.in'
+      traefik.port: 9000
+      traefik.docker.network: 'proxy'
+
+  b2c:
+    image: "registry.com.divisible.net:4567/customers/yolo/b2c:staging"
+    build:
+      cache_from:
+        - "registry.com.divisible.net:4567/customers/yolo/b2c:staging"
+      target: production_build
+      args:
+        BUILD_ENV: production
+    networks:
+      - webnet
+      - proxy
+    command: yarn serve -H 0.0.0.0
+    #    deploy:
+    labels:
+      traefik.enable: "true"
+      traefik.frontend.rule: 'Host: b2c.yolo.g1.dvlab.in'
+      traefik.port: 9000
+      traefik.docker.network: 'proxy'
+
+  crawl:
+    <<: &crawl-config
+      image: "registry.com.divisible.net:4567/customers/yolo/crawler:staging"
+      build:
+        cache_from:
+          - "registry.com.divisible.net:4567/customers/yolo/crawler:staging"
+        target: production_build
+        args:
+          ENV: production
+    command: dramatiq jobs
+
+  crawl-scheduler:
+    <<: *crawl-config
+
+  me:
+    networks:
+      - proxy
+    labels:
+      traefik.enable: "true"
+      traefik.frontend.rule: 'Host: me.yolo.g1.dvlab.in'
+      traefik.port: 8081
+      traefik.docker.network: 'proxy'
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  django-media:
+  caddy-file:

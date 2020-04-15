@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "scraping"
+version = "0.1.0"
+description = ""
+authors = ["Simone Sabba <simone.sabba@live.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+scrapy = "^1.8.0"
+selenium = "^3.141.0"
+pandas = "^1.0.0"
+urllib3 = "^1.25.8"
+scrapy_splash = "^0.7.2"
+shub = "^2.10.0"
+dateparser = "^0.7.2"
+requests = "^2.22.0"
+fire = "^0.2.1"
+proxybroker = "^0.3.2"
+mongoengine = "^0.19.1"
+dramatiq = {extras = ["redis"], version = "^1.8.1"}
+dynamic-conf = "*"
+minilog = "^1.4"
+tqdm = "^4.43.0"
+hiredis = "^1.0.1" # high thoroughput
+periodiq = "^0.12.1"
+
+[tool.poetry.dev-dependencies]
+watchdog = "*"  #  dramatiq file watcher. used while developing
+pytest = "^5.2"
+black = "^19.10b0"
+autoflake = "^1.3.1"
+ipython = "^7.12.0"
+pytest-env = "^0.6.2"
+pytest-cov = "^2.8.1"
+invoke = "^1.4.1"
+better_exceptions = "^0.2.2"
+mongomock = "^3.19.0"
+pytest-mock = "^2.0.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

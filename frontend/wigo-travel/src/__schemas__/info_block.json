@@ -1,0 +1,100 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Title"
+      }
+    },
+    "subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Subtitle"
+      }
+    }
+  },
+  "Content": {
+    "boxes": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "box_image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Box Image"
+            }
+          },
+          "box_title": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Box Title"
+            }
+          },
+          "box_content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Box Content"
+            }
+          },
+          "box_image_size": {
+            "type": "Select",
+            "config": {
+              "options": ["fixed", "fluid"],
+              "default_value": "fixed",
+              "label": "Box Image Size"
+            }
+          }
+        },
+        "label": "Boxes"
+      }
+    }
+  },
+  "Layout": {
+    "layout": {
+      "type": "Select",
+      "config": {
+        "options": ["list", "carousel"],
+        "default_value": "list",
+        "label": "Layout"
+      }
+    },
+    "title_padding_right": {
+      "type": "Select",
+      "config": {
+        "options": ["none", "small", "medium"],
+        "default_value": "none",
+        "label": "Title Padding Right"
+      }
+    },
+    "subtitle_right_padding": {
+      "type": "Select",
+      "config": {
+        "options": ["none", "small", "medium"],
+        "default_value": "none",
+        "label": "Subitle Padding Right"
+      }
+    },
+    "box_title_right_padding": {
+      "type": "Select",
+      "config": {
+        "options": ["none", "small", "medium"],
+        "default_value": "none",
+        "label": "Box Title Padding Right"
+      }
+    },
+    "box_body_right_padding": {
+      "type": "Select",
+      "config": {
+        "options": ["none", "small", "medium"],
+        "default_value": "none",
+        "label": "Box Body Padding Right"
+      }
+    }
+  }
+}

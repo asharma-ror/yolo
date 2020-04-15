@@ -1,0 +1,6 @@
+---
+
+# pyinvoke config file -http://docs.pyinvoke.org/en/stable/concepts/configuration.html
+
+run:
+  echo: true
