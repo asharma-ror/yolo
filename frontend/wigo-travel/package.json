@@ -56,7 +56,7 @@
     "intersection-observer": "^0.7.0",
     "material-ui-datetime-range-picker": "^1.0.0",
     "moment": "^2.24.0",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.11.1",
