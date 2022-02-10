@@ -117,7 +117,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "gatsby-plugin-sass": "^2.1.27",
     "gatsby-plugin-typescript": "^2.1.11",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "^1.18.2",
     "react-app-polyfill": "^1.0.5",
     "typescript": "^3.7.5"
